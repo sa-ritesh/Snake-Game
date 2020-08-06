@@ -1,2 +1,2 @@
 # Snake-Game
-STILL LONG WAY ....TO ACHIEVE..
+https://sa-ritesh.github.io/Snake-Game/
