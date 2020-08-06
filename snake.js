@@ -36,7 +36,6 @@ function draw(){
 }
 function update(){
 
-var id;
   var headX=(snake[0].x);
   var headY=(snake[0].y);
   if(headX*size>W || headX*size<0 || headY*size>H || headY*size<0){
