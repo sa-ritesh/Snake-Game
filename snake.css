@@ -3,3 +3,12 @@ canvas{
 	background-image: url("snake-back.jpg");
 	border:10px solid green;
 }
+.keyboard{
+	border:1px solid black;
+	width: 510px;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+}
+.bottom{
+	display: block;
+}
