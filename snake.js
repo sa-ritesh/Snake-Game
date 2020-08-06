@@ -14,6 +14,25 @@ var randomX, randomY;
 for(var i=len-1;i>=0;i--){
   snake.push({x:i,y:0});
 }
+var headX=(snake[0].x);
+  var headY=(snake[0].y);
+  var button_left=document.querySelector("#left");
+  var button_right=document.querySelector("#right");
+  var button_down=document.querySelector("#down");
+  var button_up=document.querySelector("#up");
+
+  button_up.addEventListener("click",function(){
+    key="w";
+  });
+  button_left.addEventListener("click",function(){
+    key="a";
+  });
+  button_right.addEventListener("click",function(){
+    key="d";
+  });
+  button_down.addEventListener("click",function(){
+    key="s";
+  });
 
 document.addEventListener("keypress",function(event){
   key=event.key;
@@ -39,8 +58,6 @@ function draw(){
 }
 function update(){
 
-  var headX=(snake[0].x);
-  var headY=(snake[0].y);
   if(headX*size>W || headX*size<0 || headY*size>H || headY*size<0){
     alert("Reload The Page to Start The New Game");
     clearInterval(id);
