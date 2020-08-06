@@ -20,8 +20,8 @@ document.addEventListener("keypress",function(event){
 });
 
 function generateRandom(){
-   randomX=Math.round(Math.random()*(W-size));
-   randomY=Math.round(Math.random()*(H-size));
+   randomX=Math.round(Math.random()*(W-size)/size);
+   randomY=Math.round(Math.random()*(H-size)/size);
 }
 generateRandom();
 
@@ -31,35 +31,47 @@ function draw(){
     c.fillStyle="blue";
     c.fillRect(snake[i].x*size,snake[i].y*size,size-2,size-2);
   }
-  c.fillRect(randomX,randomY,size,size);
+  c.fillStyle="red";
+  c.fillRect(randomX*size,randomY*size,size-2,size-2);
 }
 function update(){
-  snake.pop();
+
+var id;
   var headX=(snake[0].x);
   var headY=(snake[0].y);
-  if(key=="w"){
-    headY--;
-  }
-  else if(key=="a"){
-     headX--;
-  }
-  else if(key=="s"){
-  headY++;
-  }
-  else{
-    headX++;
+  if(headX*size>W || headX*size<0 || headY*size>H || headY*size<0){
+    alert("Reload The Page to Start The New Game");
+    clearInterval(id);
   }
   
+  if(headX*size==randomX*size && headY*size==randomY*size){
+  generateRandom();
   snake.splice(0,0,{x:headX,y:headY});
-  console.log(snake[0].x*size +" " + randomX);
-  
-  if(snake[0].x*size==randomX){
-    alert("bas");
   }
+
+  else{
+    snake.pop();
+    console.log(headX +" "+ randomX);
+     if(key=="w"){
+        headY--;
+      }
+    else if(key=="a"){
+       headX--;
+      }
+    else if(key=="s"){
+      headY++;
+      }
+    else{
+      headX++;
+    }
+
+    snake.splice(0,0,{x:headX,y:headY});
+    }
+  
 }
 function gameLoop(){
   draw();
   update();
 }
 
-setInterval(gameLoop,100);
+var id=setInterval(gameLoop,100);
