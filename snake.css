@@ -4,11 +4,16 @@ canvas{
 	border:10px solid green;
 }
 .keyboard{
-	border:1px solid black;
 	width: 510px;
 	flex-wrap: nowrap;
 	justify-content: space-around;
 }
 .bottom{
 	display: block;
+}
+
+@media screen and (max-width: 1000px){
+	.keyboard button{
+		font-size: 2rem;
+	}
 }
