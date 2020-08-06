@@ -8,6 +8,7 @@ var size=17.1;
 var x,y;
 var snake=[];
 var len=8;
+var score=8;
 var key;
 var randomX, randomY;
 for(var i=len-1;i>=0;i--){
@@ -33,6 +34,8 @@ function draw(){
   }
   c.fillStyle="red";
   c.fillRect(randomX*size,randomY*size,size-2,size-2);
+   c.font="30px Calibri";
+  c.fillText(score,50,50);
 }
 function update(){
 
@@ -42,10 +45,11 @@ function update(){
     alert("Reload The Page to Start The New Game");
     clearInterval(id);
   }
-  
+  else{
   if(headX*size==randomX*size && headY*size==randomY*size){
   generateRandom();
   snake.splice(0,0,{x:headX,y:headY});
+  score++;
   }
 
   else{
@@ -66,8 +70,9 @@ function update(){
 
     snake.splice(0,0,{x:headX,y:headY});
     }
-  
+  }
 }
+
 function gameLoop(){
   draw();
   update();
